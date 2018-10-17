@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.facebook.stetho.sample">
 
-  <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
-  <application
-      android:label="@string/app_name"
-      android:name=".SampleApplication">
+    <application
+        android:name=".SampleApplication"
+        android:label="@string/app_name">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-    <activity
-        android:label="@string/app_name"
-        android:name=".MainActivity">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-      </intent-filter>
-    </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/settings_title" />
+        <activity
+            android:name=".APODActivity"
+            android:label="@string/apod_title" />
+        <activity
+            android:name=".IRCConnectActivity"
+            android:label="@string/irc_connect_title" />
+        <activity
+            android:name=".IRCChatActivity"
+            android:label="@string/irc_chat_title" />
 
-    <activity
-        android:label="@string/settings_title"
-        android:name=".SettingsActivity" />
+        <provider
+            android:name=".APODContentProvider"
+            android:authorities="com.facebook.stetho.sample.apod"
+            android:exported="false" />
 
-    <activity
-        android:label="@string/apod_title"
-        android:name=".APODActivity" />
-
-    <activity
-        android:label="@string/irc_connect_title"
-        android:name=".IRCConnectActivity" />
-
-    <activity
-        android:label="@string/irc_chat_title"
-        android:name=".IRCChatActivity" />
-
-    <provider
-        android:name=".APODContentProvider"
-        android:authorities="com.facebook.stetho.sample.apod"
-        android:exported="false" />
-
-  </application>
+        <activity
+            android:name=".LottieActivity"
+            android:label="@string/title_activity_lottie"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
 
 </manifest>

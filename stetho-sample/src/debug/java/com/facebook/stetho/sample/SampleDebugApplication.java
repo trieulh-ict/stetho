@@ -23,6 +23,7 @@ import com.facebook.stetho.inspector.database.ContentProviderDatabaseDriver;
 import com.facebook.stetho.inspector.database.ContentProviderSchema;
 import com.facebook.stetho.inspector.database.ContentProviderSchema.Table;
 import com.facebook.stetho.inspector.protocol.ChromeDevtoolsDomain;
+import com.facebook.stetho.rhino.JsRuntimeReplFactoryBuilder;
 
 public class SampleDebugApplication extends SampleApplication {
   private static final String TAG = "SampleDebugApplication";
@@ -49,7 +50,16 @@ public class SampleDebugApplication extends SampleApplication {
                 .finish();
           }
         })
-        .enableWebKitInspector(new ExtInspectorModulesProvider(context))
+            .enableWebKitInspector(new InspectorModulesProvider() {
+              @Override
+              public Iterable<ChromeDevtoolsDomain> get() {
+                return new Stetho.DefaultInspectorModulesBuilder(context).runtimeRepl(
+                        new JsRuntimeReplFactoryBuilder(context)
+                                // Pass to JavaScript: var foo = "bar";
+                                .build()
+                ).finish();
+              }
+            })
         .build());
   }
 

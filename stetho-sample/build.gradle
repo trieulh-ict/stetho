@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.facebook.stetho.sample"
-        minSdkVersion 11
+        minSdkVersion 19
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -35,7 +35,9 @@ dependencies {
     // features of the Rhino JS implementation.  Disabled by default
     // because it is a large JAR by comparison to the rest of
     // Stetho.
-    //debugCompile project(':stetho-js-rhino')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0'
+    debugImplementation project(':stetho-js-rhino')
 
     // We must use Maven dependency resolution to demonstrate our usage
     // of optional dependencies to include stetho-urlconnection but not
@@ -58,4 +60,5 @@ dependencies {
     releaseImplementation project(':stetho-urlconnection')
 
     implementation 'com.google.code.findbugs:jsr305:2.0.1'
+    implementation 'com.airbnb.android:lottie:2.1.0'
 }

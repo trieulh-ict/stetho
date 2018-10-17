@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="15dp">
+    android:padding="15dp"
+    tools:context=".MainActivity">
 
     <!--<Button-->
     <!--android:id="@+id/settings_btn"-->
@@ -14,12 +16,22 @@
     <!--android:layout_marginBottom="10dp"-->
     <!--/>-->
 
+    <!--<Button-->
+        <!--android:id="@+id/apod_btn"-->
+        <!--android:layout_width="@dimen/main_button_width"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:text="@string/apod_btn"-->
+        <!--android:onClick="onAPODClickListener"-->
+        <!--/>-->
+    <!---->
     <Button
         android:id="@+id/apod_btn"
         android:layout_width="@dimen/main_button_width"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="@string/apod_btn" />
+        android:text="@string/apod_btn"
+        />
 
     <Button
         android:id="@+id/lottie_btn"
